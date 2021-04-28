@@ -1,0 +1,4 @@
+<mat-grid-list [cols]="breakpoint" rowHeight="2:0.5" (window:resize)="onResize($event)" gutterSize="33px">
+  <mat-grid-tile *ngFor="let p of people">{{p.name}}</mat-grid-tile>
+</mat-grid-list>
+
