@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { EmbedVideoService } from 'ngx-embed-video';
 
 @Component({
   selector: 'app-root',
@@ -6,27 +7,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  vimeoUrl = 'https://vimeo.com/197933516';
+  youtubeUrl = 'https://www.youtube.com/watch?v=iHhcHTlGtRs';
+  dailymotionUrl = 'https://www.dailymotion.com/video/x20qnej_red-bull-presents-wild-ride-bmx-mtb-dirt_sport';
 
-  people: any[] = [
-    { "name": "1  Pace" },
-    { "name": "2  Pace" },
-    { "name": "3  Pace" },
-    { "name": "4  Pace" },
-    { "name": "5  Pace" },
-    { "name": "6  Pace" },
-    { "name": "7  Pace" },
-    { "name": "8  Pace" },
-    { "name": "9  Pace" },
-    { "name": "10  Pace" },
-    { "name": "11  Pace" },
-  ];
-  breakpoint: number;
+  vimeoId = '197933516';
+  youtubeId = 'iHhcHTlGtRs';
+  dailymotionId = 'x20qnej';
 
-  ngOnInit() {
-    this.breakpoint = (window.innerWidth <= 400) ? 1 : 3;
-  }
+  constructor(private embedService: EmbedVideoService) {
+    console.log(this.embedService.embed(this.vimeoUrl));
+    console.log(this.embedService.embed(this.youtubeUrl));
+    console.log(this.embedService.embed(this.dailymotionUrl));
 
-  onResize(event) {
-    this.breakpoint = (event.target.innerWidth <= 400) ? 1 : 3;
+    console.log(this.embedService.embed_vimeo(this.vimeoId));
+    console.log(this.embedService.embed_youtube(this.youtubeId));
+    console.log(this.embedService.embed_dailymotion(this.dailymotionId));
   }
 }

@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/migra'),
+      dir: require('path').join(__dirname, './coverage/video-embed'),
       subdir: '.',
       reporters: [
         { type: 'html' },
